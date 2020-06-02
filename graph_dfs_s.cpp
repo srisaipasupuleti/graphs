@@ -25,22 +25,18 @@ int showadj(vector<int> adj[],int v){
     return 0;
 }
 
-void dfsutl(vector<int> adj[],int s,bool* visited){
+void dfs(vector<int> adj[],int s,bool* visited){
     cout<<"->"<<s;
     visited[s]=true;
     for(auto it=adj[s].begin();it!=adj[s].end();it++){
         int i=*it;
         if(visited[i]==false){
-            dfsutl(adj,i,visited);
+            dfs(adj,i,visited);
         }
     }
 }
 
 
-void dfs(vector<int> adj[],int s,int v){
-    bool visited[v]={false};
-    dfsutl(adj,s,visited);
-}
 
 int main(){
     ios_base::sync_with_stdio(false);
@@ -56,7 +52,8 @@ int main(){
     int s;
     cin>>s;
     showadj(adj,v);
-    dfs(adj,s,v);
+    bool visited[v]={false};
+    dfs(adj,s,visited);
     cout<<"\n";
     return 0;
 }
