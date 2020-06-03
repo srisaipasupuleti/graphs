@@ -1,0 +1,35 @@
+Question 1
+https://practice.geeksforgeeks.org/problems/print-adjacency-list/0
+Adjacent list implementation
+#Step-1
+my solution:
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    
+    int t,v,e,a,b;
+    cin>>t;
+    while(t--){
+       cin>>v>>e;
+       vector<int>vec[v];
+       for(int i=0;i<e;i++){
+           cin>>a>>b;
+           vec[a].push_back(b);
+           vec[b].push_back(a);
+       }
+       for(int i=0;i<v;i++){
+           cout<<i;
+           for(int j=0;j<vec[i].size();j++){
+               cout<<"-> "<<vec[i][j];
+           }
+           cout<<endl;
+       }
+    }
+    
+    return 0;
+}
